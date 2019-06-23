@@ -37,10 +37,9 @@ const id = require('./id.js');
 
     await page.goto('https://affiliate.rakuten.co.jp/');
 
-    await page.screenshot({
-        path: 'rakuten-affiliate.png',
-        fullPage: true
-    });
+    const cards = await page.$$('.card');
+
+    await cards[8].screenshot({ path: 'rakuten-affiliate.png' });
 
     browser.close();
 })();
